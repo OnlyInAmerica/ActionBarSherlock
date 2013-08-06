@@ -1,22 +1,31 @@
 buildscript {
-  repositories {
-    mavenCentral()
-  }
+    repositories {
+        mavenCentral()
+    }
 
-  dependencies {
-    classpath 'com.android.tools.build:gradle:0.5.+'
-  }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.5.+'
+    }
 }
 
-allprojects {
-  group = 'com.actionbarsherlock'
-  version = '4.4.0'
+apply plugin: 'android-library'
 
-  repositories {
-    mavenCentral()
-  }
+dependencies {
+    compile 'com.android.support:support-v4:13.0.0'
+}
 
-  tasks.withType(Compile) {
-    options.encoding = "UTF-8"
-  }
+android {
+    compileSdkVersion 18
+    buildToolsVersion "17"
+    sourceSets {
+        main {
+            manifest.srcFile 'actionbarsherlock/AndroidManifest.xml'
+            java.srcDirs = ['actionbarsherlock/src']
+            resources.srcDirs = ['actionbarsherlock/src']
+            aidl.srcDirs = ['actionbarsherlock/src']
+            renderscript.srcDirs = ['actionbarsherlock/src']
+            res.srcDirs = ['actionbarsherlock/res']
+            assets.srcDirs = ['actionbarsherlock/assets']
+        }
+    }
 }

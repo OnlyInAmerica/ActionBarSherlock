@@ -10,7 +10,10 @@ buildscript {
 
 allprojects {
   group = 'com.actionbarsherlock'
-  version = '4.4.0'
+  // Version appended to .aar filename, making android gradle plugin
+  // unable to find resulting artifact.
+  // See discussion: https://groups.google.com/forum/#!msg/adt-dev/CSDCNB3j7Ms/xpshHsfZGMoJ
+  //version = '4.4.0'
 
   repositories {
     mavenCentral()
